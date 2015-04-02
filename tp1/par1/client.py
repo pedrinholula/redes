@@ -4,7 +4,6 @@ PORT = 5000 # Porta que o Servidor esta
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 tcp.connect(dest)
-msg = raw_input()
 ba = bytearray(1000)
 for msg in ba:
     while reponse <> '0':
