@@ -15,6 +15,6 @@ for x in range(MESSAGES):
     msg = random.choice(string.ascii_letters)*10
     print x, msg
     tcp.send(msg)
-
 response = tcp.recv(8)
+tcp.close()
 print response

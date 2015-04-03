@@ -18,5 +18,5 @@ while True:
         print msg
         if not msg:
             con.send("0")
+            con.close()
             break
-        print 'Finalizando conexao do cliente', cliente
