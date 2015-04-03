@@ -18,6 +18,6 @@ while True:
         print msg
         if not msg:
             con.send("0")
-            con.shutdown(SHUT_RDWR)
+            con.shutdown(socket.SHUT_RDWR)
             con.close()
             break

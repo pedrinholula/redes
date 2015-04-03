@@ -22,7 +22,7 @@ for msg in range(MESSAGES):
 
 
 for msg in msg_lst:
-    print x, msg
+    print msg
     tcp.send(msg)
 tcp.shutdown(socket.SHUT_WR)
 response = tcp.recv(8)
