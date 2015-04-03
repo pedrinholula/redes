@@ -15,9 +15,8 @@ while True:
     print 'Conectado por', cliente
     while True:
         msg = con.recv(1024)
+        print msg
         if not msg:
             con.send("0")
             break
-        resp = '' + x
-        con.send(resp)
         print 'Finalizando conexao do cliente', cliente
