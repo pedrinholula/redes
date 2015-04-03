@@ -10,14 +10,17 @@ orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
 
+# Execução infinita
 while True:
     con, cliente = tcp.accept()
     print 'Conectado por', cliente
     while True:
+        #Espera a mensagem do cliente
         msg = con.recv(1024)
         print msg
         if not msg:
-            con.send("0")
+            con.send("0")  # envia a ultima mensagem
+            #fecha conexão para novas mensagens
             con.shutdown(socket.SHUT_RDWR)
             con.close()
             break
