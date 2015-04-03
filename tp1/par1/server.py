@@ -10,7 +10,6 @@ while True:
     print 'Conectado por', cliente
     while True:
         msg = con.recv(1024)
-        if not msg: break
+        if not msg: con.send('0')
         print cliente, msg
-    con.send('0')
     con.close()
