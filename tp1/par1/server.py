@@ -9,8 +9,8 @@ while True:
     con, cliente = tcp.accept()
     print 'Conectado por', cliente
     while True:
-        msg_size = int(con.rcv(1024))
-        for x in range(msg_size):
+        msg_size = con.rcv(1024)
+        for x in range(int(msg_size)):
             msg = con.recv(1024)
             print cliente, msg
         print 'Finalizando conexao do cliente', cliente

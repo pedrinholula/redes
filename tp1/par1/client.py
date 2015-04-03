@@ -13,7 +13,6 @@ for x in range(1000):
     msg = random.choice(string.ascii_letters)
     print msg, x
     tcp.send(msg)
-    print response
 response = tcp.recv(1024)
 print response
 tcp.close()
