@@ -9,10 +9,11 @@ dest = (HOST, PORT)
 tcp.connect(dest)
 response = True
 ba = []
-for x in range(1000)
+for x in range(1000):
     ba.append (random.choice(string.ascii_letters))
 while response <> '0':
     for msg in ba:
+        print msg
         tcp.send (msg)
         response = tcp.recv(1024)
 tcp.close()
