@@ -16,4 +16,5 @@ while response <> '0':
         print msg
         tcp.send (msg)
         response = tcp.recv(1024)
+        print response
 tcp.close()
