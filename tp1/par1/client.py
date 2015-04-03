@@ -8,8 +8,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 tcp.connect(dest)
 
-#Envia o tamanho da mensagem TODO
-tcp.send("1000")
+tcp.send("1000")  # Envia o tamanho da mensagem TODO
 for x in range(1000):
     msg = ba.append(random.choice(string.ascii_letters))
     print msg, x
