@@ -8,13 +8,12 @@ tcp.listen(1)
 while True:
     con, cliente = tcp.accept()
     print 'Conectado por', cliente
+
     while True:
-        msg_size = con.rcv(1024)
-        for x in range(int(msg_size)):
-            msg = con.recv(1024)
-            resp = '' + x
-            con.send(resp)
+        msg = con.recv(1024)
+        if not msg:
+            con.send("0")
+            break
+        resp = '' + x
+        con.send(resp)
         print 'Finalizando conexao do cliente', cliente
-        con.send("0")
-        break
-    con.close()
