@@ -23,11 +23,13 @@ for msg in range(MESSAGES):
     msg_lst.append(w)
 
 #Envia uma a uma as mensagens criadas
-response = True
-for msg in msg_lst:
-    print msg
-    while response:
+while True:
+    for msg in msg_lst:
         tcp.send(msg)
-        response = tcp.recv()
-tcp.shutdown(socket.SHUT_RDWR)  # Fecha a conexão para envio
-tcp.close()
+        response = tcp.recv(8)
+        print msg, response
+        if not response:
+            break
+    tcp.shutdown(socket.SHUT_RDWR)  # Fecha a conexão para envio
+    tcp.close()
+    break
