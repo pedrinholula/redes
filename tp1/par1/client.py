@@ -10,7 +10,7 @@ tcp.connect(dest)
 
 tcp.send("1000")  # Envia o tamanho da mensagem TODO
 for x in range(1000):
-    msg = ba.append(random.choice(string.ascii_letters))
+    msg = random.choice(string.ascii_letters)
     print msg, x
     tcp.send(msg)
     print response
