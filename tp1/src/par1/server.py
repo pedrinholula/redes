@@ -18,10 +18,11 @@ while True:
     while True:
         #Espera a mensagem do cliente
         msg = con.recv(1024)
-        print msg
+        #print msg
         if not msg:
             con.send(response)  # envia a ultima mensagem
             #fecha conexão para novas mensagens
             con.shutdown(socket.SHUT_RDWR)
             con.close()
+            print "Conexão fechada."
             break
