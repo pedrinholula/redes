@@ -25,7 +25,7 @@ def client():
         for msg in LIST:
             tcp.send(msg)
             response = tcp.recv(8)
-            print msg, response
+            #print msg, response
             if not response:
                 break
         tcp.shutdown(socket.SHUT_RDWR)  # Fecha a conexão para envio
