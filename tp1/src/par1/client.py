@@ -41,7 +41,7 @@ if len(sys.argv) == 3:
     f = open('./resultp1-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
     t = timeit.Timer(client)
 
-    exectime = t.repeat(4, 100)
+    exectime = t.repeat(4, 10)
     for item in exectime:
         print>>f, item
 
