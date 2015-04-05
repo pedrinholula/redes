@@ -3,14 +3,14 @@ import sys
 import timeit
 
 
-def create_messages(num, size):
-    #Cria a lista de mensagens
+def create_messages(numM, sizeM):
     import random
     import string
+    #Cria a lista de mensagens
     msg_lst = []
-    for msg in range(num):
+    for msg in range(numM):
         w = ''
-        for size in range(size):
+        for size in range(sizeM):
             w += random.choice(string.ascii_letters)
         msg_lst.append(w)
     return msg_lst
