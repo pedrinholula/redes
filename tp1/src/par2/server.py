@@ -19,7 +19,6 @@ while True:
         msg = con.recv(1024)
         print msg
         if not msg:
-            con.shutdown(socket.SHUT_RDWR)
             con.close()
             break
         else:
