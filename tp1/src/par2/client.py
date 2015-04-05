@@ -1,14 +1,13 @@
 # coding: utf-8
-
-import socket
-import random
-import string
 import sys
 import timeit
+import numpy
 
 
 def create_messages(num, size):
-#Cria a lista de mensagens
+    #Cria a lista de mensagens
+    import random
+    import string
     msg_lst = []
     for msg in range(num):
         w = ''
@@ -19,6 +18,8 @@ def create_messages(num, size):
 
 
 def client():
+    #Client socket
+    import socket
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     dest = (HOST, PORT)
     tcp.connect(dest)
@@ -49,7 +50,8 @@ if len(sys.argv) == 3:
     exectime = t.repeat(4, 10)
     for item in exectime:
         print>>f, item
-
+    print >> f, "--"
+    print >> f, "mean: ", numpy.mean(exectime)
     f.close()
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
