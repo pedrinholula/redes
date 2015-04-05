@@ -13,6 +13,7 @@ if argc == 3:
     SIZE = argv[2]
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
+    sys.exit()
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
