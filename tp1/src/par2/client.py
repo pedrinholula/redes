@@ -1,7 +1,6 @@
 # coding: utf-8
 import sys
 import timeit
-import numpy
 
 
 def create_messages(num, size):
@@ -51,7 +50,7 @@ if len(sys.argv) == 3:
     for item in exectime:
         print>>f, item
     print >> f, "--"
-    print >> f, "mean: ", numpy.mean(exectime)
+    print >> f, "mean: ", reduce(lambda x, y: x + y, l) / len(l)
     f.close()
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
