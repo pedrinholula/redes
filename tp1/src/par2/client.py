@@ -5,13 +5,10 @@ import timeit
 
 def create_messages(numM, sizeM):
     import random
-    import string
     #Cria a lista de mensagens
     msg_lst = []
     for msg in range(numM):
-        w = ''
-        for size in range(sizeM):
-            w += random.choice(string.ascii_letters)
+        w = bytearray(random.getrandbits(8) for i in range(sizeM))
         msg_lst.append(w)
     return msg_lst
 
