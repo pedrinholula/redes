@@ -7,8 +7,12 @@ import sys
 
 HOST = '10.0.0.1'  # Endereco IP do Servidor
 PORT = 5000  # Porta que o Servidor esta
-MESSAGES = 10  # Numero de mensagens a ser enviado
-SIZE = 10
+
+if argc == 3:
+    MESSAGES = argv[1]  # Numero de mensagens a ser enviado
+    SIZE = argv[2]
+else:
+    print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
