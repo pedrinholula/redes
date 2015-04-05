@@ -9,6 +9,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
+response = bytearray(1)
 print "Servidor iniciado. Aguardando conexão"
 # Execução infinita
 while True:
@@ -22,4 +23,4 @@ while True:
             con.close()
             break
         else:
-            con.send("0")  # envia uma mensagem
+            con.send(response)  # envia uma mensagem
