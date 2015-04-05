@@ -41,7 +41,7 @@ PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
     SIZE = int(sys.argv[2])  # Tamanho de cada mensagem
-    f = open('result-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
+    f = open('../../doc/par2/result-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
     t = timeit.Timer(client)
 
     exectime = t.repeat(4, 100)
