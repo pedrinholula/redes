@@ -40,10 +40,14 @@ HOST = '10.0.0.1'  # Endereco IP do Servidor
 PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
-    SIZE = int(sys.argv[2])
-    f = open('result-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', w)
+    SIZE = int(sys.argv[2])  # Tamanho de cada mensagem
+    f = open('result-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
     t = timeit.Timer(client)
-    f.write(print t.repeat(4, 100))
+
+    exectime = t.repeat(4, 100)
+    for item in exectime:
+        print>>f, item
+
     f.close()
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
