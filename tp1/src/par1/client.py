@@ -46,7 +46,7 @@ if len(sys.argv) == 3:
     for item in exectime:
         print >> f, item
     print >> f, "--"
-    print >> f, "mean: ", reduce(lambda x, y: x + y, l) / len(l)
+    print >> f, "mean: ", reduce(lambda x, y: x + y, exectime) / len(exectime)
     f.close()
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
