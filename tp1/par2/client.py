@@ -4,6 +4,7 @@ import socket
 import random
 import string
 import sys
+import timeit
 
 
 def create_messages(num, size):
