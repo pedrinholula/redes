@@ -9,7 +9,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
-
+print "Servidor iniciado. Aguardando conexão"
 # Execução infinita
 while True:
     con, cliente = tcp.accept()

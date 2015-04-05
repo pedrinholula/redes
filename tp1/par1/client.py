@@ -4,6 +4,7 @@ import socket
 import random
 import string
 import sys
+import timeit
 
 
 def create_messages(numM, sizeM):
@@ -24,11 +25,11 @@ def client():
     tcp.connect(dest)
     #Envia uma a uma as mensagens criadas
     for msg in create_messages(MESSAGES, SIZE):
-        print msg
+        #print msg
         tcp.send(msg)
     tcp.shutdown(socket.SHUT_WR)  # Fecha a conexão para envio
     response = tcp.recv(8)  # Recebe a resposta do servidor
-    print response
+    #print response
     tcp.close()
 
 
@@ -38,7 +39,10 @@ PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
     SIZE = int(sys.argv[2])
+    f = open('result-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', w)
+    t = timeit.Timer(client)
+    f.write(print t.repeat(4, 100))
+    f.close()
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
     sys.exit()
-client()

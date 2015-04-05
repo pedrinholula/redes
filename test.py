@@ -4,6 +4,7 @@ import socket
 import random
 import string
 import sys
+import timeit
 
 
 def create_messages(numM, sizeM):
@@ -26,7 +27,8 @@ def client():
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
     SIZE = int(sys.argv[2])
+    t = timeit.Timer(client)
+    print t.repeat(4, 100)
 else:
     print "Usage: client.py <#MESSAGES> <MESSAGES SIZE>"
     sys.exit()
-client()
