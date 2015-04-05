@@ -24,7 +24,7 @@ def client():
     dest = (HOST, PORT)
     tcp.connect(dest)
     #Envia uma a uma as mensagens criadas
-    for msg in create_messages(MESSAGES, SIZE):
+    for msg in LIST:
         #print msg
         tcp.send(msg)
     tcp.shutdown(socket.SHUT_WR)  # Fecha a conexão para envio
@@ -38,6 +38,8 @@ PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
     SIZE = int(sys.argv[2])  # Tamanho de cada mensagem
+    LIST = create_messages(MESSAGES, SIZE)
+
     f = open('./resultp1-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
     t = timeit.Timer(client)
 

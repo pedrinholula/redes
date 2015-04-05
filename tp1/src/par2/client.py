@@ -25,7 +25,7 @@ def client():
 
     #Envia uma a uma as mensagens criadas
     while True:
-        for msg in create_messages():
+        for msg in LIST:
             tcp.send(msg)
             response = tcp.recv(8)
             print msg, response
@@ -41,6 +41,8 @@ PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
     MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
     SIZE = int(sys.argv[2])  # Tamanho de cada mensagem
+    LIST = create_messages(MESSAGES, SIZE)
+
     f = open('./resultp2-'+sys.argv[1]+'-'+sys.argv[2]+'.txt', 'w')
     t = timeit.Timer(client)
 
