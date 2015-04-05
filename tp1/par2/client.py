@@ -9,8 +9,8 @@ HOST = '10.0.0.1'  # Endereco IP do Servidor
 PORT = 5000  # Porta que o Servidor esta
 
 if len(sys.argv) == 3:
-    MESSAGES = sys.argv[1]  # Numero de mensagens a ser enviado
-    SIZE = sys.argv[2]
+    MESSAGES = int(sys.argv[1])  # Numero de mensagens a ser enviado
+    SIZE = int(sys.argv[2])
 else:
     print "Usage: client.py <# MESSAGES> <MESSAGES SIZE>"
     sys.exit()
