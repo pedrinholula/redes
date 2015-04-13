@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{sbc-template}
+%\usepackage{subfigure}
+%\usepackage{times,amsmath,epsfig}
+%\usepackage{graphicx,url}
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage[lined,algonl,ruled]{algorithm2e}
+\usepackage{multirow}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\sloppy
+
+\title{Trabalho Prático 1: \\Interface de sockets e medição de desempenho}
+
+\author{Pedro Lopes Miranda Junior}
+
+\address{Departamento de Ciência da Computação -- Universidade Federal de Minas Gerais (UFMG) \email{plmj@dcc.ufmg.br}}
+
+\begin{document}
+\maketitle
+
+\begin{resumo}
+  O objetivo deste trabalho é (1) exercitar a interface de programação com sockets (em python),
+  (2) se familiarizar com o ambiente virtualizado mininet para emulação de sistemas em rede e
+  (3) medir e analisar o desempenho de aplicações simples neste ambiente.
+  Para tanto, as seguintes etapas estão envolvidas:
+  \begin{enumerate}
+  \item Instalação do mininet e configuração de uma topologia.
+  \item Implementação/execução de programas de teste no mininet e medição de desempenho.
+  \item Análise de resultados e escrita do relatório.
+  \end{enumerate}
+\end{resumo}
+
+\section{INTRODUÇÃO}
+\label{introducao}
+
+Assim, para testar os conceitos de redes de computadores, foi requisitado o teste de dois pares cliente/servidor
+descritos abaixo.
+\begin{enumerate}
+\item[Par 1:] O cliente envia um certo número de mensagens para o servidor, sem paradas entre cada envio. 
+Ao final, ele espera uma mensagem de um byte de volta do servidor.\\
+\item[Par 2:] Cada vez que o cliente enviar uma mensagem, ele deverá esperar uma resposta de um byte do ser-
+vidor. 
+O cliente termina depois de fazer esse processo um certo número de vezes.
+\end{enumerate}
+
+\section{SOLUÇÃO PROPOSTA}
+\label{solucao_proposta}
+
+Para solucionar os problemas propostos foram feitos dois pares de cliente/servidor utilizando a linguagem \textit{Python}
+e a biblioteca \textit{socket} para fazer a conexão do cliente com o servidor.
+Outras bibliotecas usadas foram as \textit{sys, random} e a \textit{timeit}.\\
+A primeira foi utilizada para recuperar os parâmetros passados na chamda do script. 
+Já a segunda para criar as sequencias aleatórias de mensagens. A última 
+para medir o tempo de execução da função \textit{client} em cada um dos pares.\\
+Os demais detalhes de implementação serão tratados na subseção a seguir
+
+\subsection{Par 1}
+Para o par 1 era necessário criar um cliente que enviava mensagens intermitentes esperando ao fim de todas elas
+uma resposta de 1 byte do servidor, e as premissas usadas em cada item do par estão descritas abaixo:
+
+\subsubsection{Cliente}
+O cliente recebe como parâmetro o número de mensagens e o tamanho de cada uma delas,
+cria as mensagens aleatórias que servirão de envio para o servidor e as envia, uma a uma, 
+esperando ao fim uma resposta de um byte. Para o funcionamento correto do par o cliente envia
+ao fim das mensagens um sinal de fechamento da conexão apenas para envio, 
+ficando de guarda quanto a resposta final do servidor, para só então fechar completamente a conexão.\\
+
+A criação das mensagens foi feita separadamente do código do cliente para não interferir na análise de tempo
+de envio das mensagens do cliente para o servidor. Para essa medição foi utulizada a função \textit{Timer} da biblioteca \textit{timeit}.
+Ela calcula o tempo de execução de uma função específica chamando-a diversas vezes e tirando a média do tempo de execução da mesma. 
+Nesse primeiro momento não há variação das mensagens, então essa média é a de envio de uma ou mais mensagens específicas. 
+Além disso o procedimento citado é repetido  com o envio de outras mensagens, deixando a média ainda mais confiável. 
+Para o teste cada mensagem foi enviada 10 vezes e foram criadas 4 mensagens diferentes para envio ao servidor.
+
+\subsubsection{Servidor}
+
+\subsection{Par 2}
+\subsubsection{Cliente}
+\subsubsection{Servidor}
+Esses parâmetros são o número de mensagens a serem trocadas entre os pares e o tamanho de cada uma das mensagens.\\
+Elas foram criadas numa função separada e anteriormente a troca de mensagens entre o cliente e o servidor para não
+influenciar na medição do tempo.\\
+\section{AVALIAÇÃO EXPERIMENTAL}
+\label{avaliacao_experimental}
+
+\subsection{Resultados}
+
+\subsection{Análises}
+
+\section{CONCLUSÃO}
+\label{conclusao}
+
+\end{document}

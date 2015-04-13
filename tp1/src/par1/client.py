@@ -28,7 +28,6 @@ def client():
     #print response
     tcp.close()
 
-
 HOST = '10.0.0.1'  # Endereco IP do Servidor
 PORT = 5000  # Porta que o Servidor esta
 if len(sys.argv) == 3:
